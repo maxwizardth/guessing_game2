@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>guessing game</title>
+	
+	<meta charset="utf-8">
+	<meta name="keywords"
+	content="HTML, CSS, Javascript">
+	<meta name="description"
+	content="just funny game">
+    <meta name="author"
+    content="Abdull Maxwizard">
+    
+</head>
+
+<body>
+	<style type="text/css">
+		body{text-align: center;
+			}
+		#container{background: #4488aa;color: white;
+			height: 60vh;}
+		input{width: 40vw;
+			height: 8vh;
+			margin-bottom: 1vh;}
+			#sumit{background: yellow;
+				color:black;
+				width: 20vw;
+				height: 6vh;
+				border-radius: 30% 30% 30% 30%;
+				font-size: 26px;}
+				#p1{background:purple;
+				color: white;
+				font-size: 41px }
+				p{font-size: 30px;}
+				.game{background: #bbb;
+					height:95vh;
+					width:80vw;
+					margin-left: 3vw;
+					margin-top: 3svh;
+					padding: 50px;
+					padding-top: 5px}
+					#our,#counter{display: none;}
+					#alerm{background: purple}
+					#inp,h1{font-size: 38px;}
+					#you{
+    font-size:55px;
+    color: gold;
+    font-weight:bold;
+    font-family:cursive;
+    text-align:center;
+    background-color:green;
+    margin:0 auto;
+    width:4s0vw;
+    display: none;
+    margin-top: 25px;
+    border-radius:10px;
+    animation-name:ak;
+    animation-direction:alternate;
+    animation-duration:10s;
+    animation-iteration-count:6;
+}
+@keyframes ak{
+    0%{
+        transform:scale(0)rotate(0deg);
+        background-color:red;
+        color:white;
+    }
+    20%{
+        transform:scale(1);
+        background-color:blue;
+        color:pink;
+    }
+    40%{
+        transform:scale(0)rotate(0deg);
+        background-color:green;
+        color:red;
+    }
+    60%{
+        transform:scale(1);
+        background-color:pink;
+        color:purple;
+    }
+    80%{
+        transform:scale(0)rotate(0deg);
+        background-color:yellow;
+        color:black;
+    }
+    100%{
+        transform:scale(1);
+        background-color:orange;
+        color:red;
+    }
+    
+}
+#try{border-radius: 25%;
+color: red;
+background:pink;width: 50%;
+font-size: 35px;
+display: none;
+text-align: center;
+margin-left: 16vw;
+}
+h3{font-size: 43px;}
+	</style>
+	<div class="game">
+<p id="p1">Number guessing game </p>
+<p>Try and guess a random number from 1 and 100<br>You have 10attempts to guess the right number</p>
+<div id="container">
+	<h1>GUESS A NUMBER</h1>
+<input type="text" value="click here to write guess" id="inp" ><br>
+<input id="sumit" type="button" onclick="summit()" value="submit guess">
+<h1 id="you">YOU WON</h1>
+<h3> Previous guess:0</h3><h3> guess remaining:10</h3>
+<h2 id="alerm"></h2>
+<input id="try" type="button" value="Play again" onclick="window.location.reload()">
+<h4 id="our"></h3>
+<h4 id="counter">10</h4>
+
+</div>
+</div>
+<script type="text/javascript">
+	alert("how about playing a random guessing game? just input your number and press submit");
+	alert("look at the result below it input another number untill your chances run out");
+	var inp=document.getElementById('inp').value;
+	var number=Math.floor(Math.random()*100);
+	document.getElementById('our').innerHTML=number;
+	var previo=0;
+     var remain=10;
+	function summit(){
+		var inp=document.getElementById('inp').value;
+	var realnum= document.getElementById('our').innerHTML;
+	
+	
+     var counter=document.getElementById('counter').innerHTML;
+    var x=eval(counter-1);
+     var y=eval(10-x);
+     var counter=document.getElementById('counter').innerHTML=x;
+     document.getElementsByTagName('h3')[0].innerHTML="Previous guess:"+y;
+     document.getElementsByTagName('h3')[1].innerHTML="guess remaining:"+x;
+     if(x<1){document.getElementById('alerm').innerHTML="Game Over! you loose<br>"+"the answer is "+number;
+     document.getElementById('you').innerHTML="YOU LOOSE";
+     document.getElementById('you').style.display="block";
+     document.getElementById('try').style.display="block";
+      }
+     else{
+		if(inp>number){document.getElementById('alerm').innerHTML="Too High Try again!"}
+	else if(inp==number){document.getElementById('alerm').innerHTML="Correct! You got it!";
+         document.getElementById('you').style.display="block";
+     document.getElementById('try').style.display="block";}
+		else{document.getElementById('alerm').innerHTML="Too Low Try again!"}
+			
+	}
+	}
+
+
+
+</script>
+</body>
+</html>
